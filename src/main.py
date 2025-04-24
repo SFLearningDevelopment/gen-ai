@@ -16,29 +16,24 @@ def main():
     agent = BaseAgent()
 
     current_dir = os.path.dirname(os.path.abspath(__file__))
-    sayings_path = os.path.join(current_dir, '/Users/jv.ravichandran/ai-agent-project/src//data/dataset.csv')
-    meanings_path = os.path.join(current_dir, '/Users/jv.ravichandran/ai-agent-project/src//data/meanings.csv')
+    wordtype_path = os.path.join(current_dir, '/Users/jv.ravichandran/ai-agent-project/src//data/dataset.csv')
     
     # Load and preprocess data
-    sayings_data = load_data(sayings_path)
-    if sayings_data is None:
-        print(f"Error: Failed to load data from {sayings_path}.")
+    wordtype_data = load_data(wordtype_path)
+    if wordtype_data is None:
+        print(f"Error: Failed to load data from {wordtype_path}.")
         return
-    meanings_data = load_data(meanings_path)
-    if meanings_data is None:
-        print(f"Error: Failed to load data from {meanings_path}.")
-        return
-
-    processed_sayings = preprocess_data(sayings_data)
-    processed_meanings = preprocess_data(meanings_data)
-    if processed_sayings is None or processed_meanings is None:
+   
+    processed_word = preprocess_data(wordtype_data)
+    
+    if processed_word is None:
         print("Error: Failed to preprocess data.")
         return
 
     # Initialize the model
     model = Model()
     
-    model.train(processed_sayings, processed_meanings)
+    model.train(processed_word)
 
     interact_with_model(model)
 
