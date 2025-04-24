@@ -16,7 +16,7 @@ def main():
     agent = BaseAgent()
 
     current_dir = os.path.dirname(os.path.abspath(__file__))
-    wordtype_path = os.path.join(current_dir, '/Users/jv.ravichandran/ai-agent-project/src//data/dataset.csv')
+    wordtype_path = os.path.join(current_dir, <path to your dataset> eg.'/Users/jv.ravichandran/ai-agent-project/src//data/dataset.csv')
     
     # Load and preprocess data
     wordtype_data = load_data(wordtype_path)
